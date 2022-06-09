@@ -1,3 +1,5 @@
+import util.Pair;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,12 +16,19 @@ public class MartianRobotsApplication {
         String inputFilePath = "data/sampleInput.txt";
         String outputFilePath = "data/output.txt";
 
+        Robot robot = null;
+
         try {
             input = Files.readAllLines(Path.of(inputFilePath));
         } catch (IOException e) {
             System.out.println("Please check the input file path and try again.");
             System.exit(0);
         }
+
+
+
+        Pair minCoordinates = new Pair(0,0);
+        Pair maxCoordinates = new Pair(Integer.parseInt(input.get(0).split(" ")[0]),Integer.parseInt(input.get(0).split(" ")[1]));
 
         // make and process robots
         for (int i=1; i < input.size(); i++) {
@@ -29,12 +38,13 @@ public class MartianRobotsApplication {
                 case 1:
                     // new robot
                     System.out.println("make new Robot: " + line);
+                    robot = new Robot(line);
                     break;
                 case 2:
                     // move robot
                     System.out.println("move Robot: " + line);
                     break;
-                case 3:
+                case 0:
                     System.out.println("blank line do nothing" + line);
                     break;
             }
