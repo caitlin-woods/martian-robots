@@ -37,4 +37,17 @@ public class RobotTest {
         actualRobot.move("RRRL");
         assertThat(actualRobot.getCurrentDirection(), equalTo('W'));
     }
+
+    @Test
+    public void robotForwardMoveTest() {
+        actualRobot.move("RFRFRFRF");
+        assertThat(actualRobot.getFinalPosition(), equalTo(expectedStartPosition));
+        assertThat(actualRobot.getCurrentDirection(), equalTo(expectedCurrentDirection));
+
+        actualRobot.move("F");
+        assertThat(actualRobot.getFinalPosition(), equalTo(new Pair(2,1)));
+
+        actualRobot.move("LF");
+        assertThat(actualRobot.getFinalPosition(), equalTo(new Pair(2,2)));
+    }
 }

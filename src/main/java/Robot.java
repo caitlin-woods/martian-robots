@@ -10,7 +10,8 @@ public class Robot {
 
     public Robot(String startPositionWithDirection) {
         String[] elements = startPositionWithDirection.split(" ");
-        this.startPosition = new Pair(Integer.parseInt(elements[0]),Integer.parseInt(elements[1]));
+        startPosition = new Pair(Integer.parseInt(elements[0]),Integer.parseInt(elements[1]));
+        finalPosition = startPosition;
         currentDirection = elements[2].charAt(0);
     }
 
@@ -22,6 +23,7 @@ public class Robot {
                     currentDirection = Direction.change(currentDirection, letter);
                     break;
                 case F:
+                    finalPosition = Direction.forward(finalPosition, currentDirection);
                     break;
             }
         }
