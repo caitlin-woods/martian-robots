@@ -28,4 +28,11 @@ test {
         showStandardStreams = true
         events = ["passed", "failed", "skipped"]
     }
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'MartianRobotsApplication'
+        }
+    }
 }
+
