@@ -43,6 +43,7 @@ public class MartianRobotsApplication {
                 case 2:
                     // move robot
                     System.out.println("move Robot: " + line);
+                    robot.move(line);
                     break;
                 case 0:
                     System.out.println("blank line do nothing" + line);

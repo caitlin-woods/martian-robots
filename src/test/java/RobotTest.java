@@ -22,4 +22,19 @@ public class RobotTest {
         assertThat(actualRobot.getStartPosition(), equalTo(expectedStartPosition));
         assertThat(actualRobot.getCurrentDirection(), equalTo(expectedCurrentDirection));
     }
+
+    @Test
+    public void changeDirectionTest() {
+        actualRobot.move("LRLR");
+        assertThat(actualRobot.getCurrentDirection(), equalTo(expectedCurrentDirection));
+
+        actualRobot.move("LLLL");
+        assertThat(actualRobot.getCurrentDirection(), equalTo(expectedCurrentDirection));
+
+        actualRobot.move("RRRR");
+        assertThat(actualRobot.getCurrentDirection(), equalTo(expectedCurrentDirection));
+
+        actualRobot.move("RRRL");
+        assertThat(actualRobot.getCurrentDirection(), equalTo('W'));
+    }
 }

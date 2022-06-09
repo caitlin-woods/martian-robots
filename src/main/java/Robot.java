@@ -14,6 +14,20 @@ public class Robot {
         currentDirection = elements[2].charAt(0);
     }
 
+    protected String move(String instructions) {
+        for (char letter : instructions.toCharArray()) {
+            switch (CommandTypes.valueOf(String.valueOf(letter))) {
+                case L:
+                case R:
+                    currentDirection = Direction.change(currentDirection, letter);
+                    break;
+                case F:
+                    break;
+            }
+        }
+        return finalPositionWithDirection;
+    }
+
     public Pair getStartPosition() {
         return startPosition;
     }
